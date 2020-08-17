@@ -1,13 +1,21 @@
-import _ from 'lodash';
+import '../src/CSS/style.css';
+// import _ from 'lodash';
 
-function component() {
-  const element = document.createElement('div');
+function RenderSite() {
+  let body = document.querySelector('body');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'welcome to JavaScript with Webpack'], ' ');
-
-
-  return element;
+  console.log(body);
 }
+// // function component() {
+// //   const element = document.createElement('div');
 
-document.body.appendChild(component());
+// //   // Lodash, now imported by this script
+// //   element.innerHTML = _.join(['Hello', 'welcome to JavaScript with Webpack'], ' ');
+
+
+// //   return element;
+// // }
+
+// document.body.appendChild(component());
+
+RenderSite();

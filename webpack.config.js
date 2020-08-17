@@ -12,6 +12,16 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './src',
+    watchContentBase: true,
+    writeToDisk: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   plugins: [ htmlWebpackPlugin,
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
