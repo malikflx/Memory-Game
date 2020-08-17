@@ -1,3 +1,32 @@
-body {
-  background: green;
+header {
+  text-align: center;
+}
+
+.deck {
+  margin: 1% 25% 1% 25%;
+  padding: 1% 1% 1% 1%; 
+  background: #0AC7FF;
+}
+
+.deck:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.card {
+  float: left;
+  background: #191919;
+  width: 21%;
+  height: 14vh;
+  margin: 2%;
+  border-radius: 5%;
+  box-shadow: 11px 14px 20px -6px rgba(0,0,0,1);
+
+
+}
+
+.match {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

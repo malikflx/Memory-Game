@@ -1,5 +1,6 @@
 import '../src/CSS/style.css';
-// import _ from 'lodash';
+import '../src/script.js';
+import _ from 'lodash';
 
 function RenderSite() {
   let body = document.querySelector('body');
