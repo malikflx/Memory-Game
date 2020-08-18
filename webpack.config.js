@@ -11,6 +11,9 @@ module.exports = {
   entry: './src/index.js',
   devtool: 'inline-source-map',
   devServer: {
+    stats: {
+      errors: true
+    },
     contentBase: './src',
     watchContentBase: true,
     writeToDisk: true,

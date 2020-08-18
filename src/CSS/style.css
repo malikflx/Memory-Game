@@ -1,26 +1,100 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 header {
   text-align: center;
 }
 
-.deck {
-  margin: 1% 25% 1% 25%;
-  padding: 1% 1% 1% 1%; 
-  background: #0AC7FF;
+i {
+  color: white;
 }
 
-.deck:after {
+.board {
+  width: 50%;
+  height: 100%;
+  max-width: 670px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.deck {
+  width: 85%;
+  height: 100%;
+  min-height: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #0AC7FF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 0 1em;
+
+}
+
+/* .deck:after {
   content: '';
   display: table;
   clear: both;
-}
+} */
 .card {
-  float: left;
+  height: 110px;
+  width: 110px;
+  background: #2e3d49;
+  margin: 5px;
+  border-radius: 8px;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+
+  /* float: left;
   background: #191919;
   width: 21%;
   height: 14vh;
   margin: 2%;
   border-radius: 5%;
-  box-shadow: 11px 14px 20px -6px rgba(0,0,0,1);
+  box-shadow: 11px 14px 20px -6px rgba(0,0,0,1);  */
 
 
 }
