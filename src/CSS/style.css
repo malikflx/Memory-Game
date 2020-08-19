@@ -62,15 +62,9 @@ i {
   -ms-flex-align: center;
   align-items: center;
   margin: 0 0 1em;
-
 }
 
-/* .deck:after {
-  content: '';
-  display: table;
-  clear: both;
-} */
-.card {
+.deck .card {
   height: 110px;
   width: 110px;
   background: #2e3d49;
@@ -86,17 +80,42 @@ i {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5); 
+}
 
-  /* float: left;
-  background: #191919;
-  width: 21%;
-  height: 14vh;
-  margin: 2%;
-  border-radius: 5%;
-  box-shadow: 11px 14px 20px -6px rgba(0,0,0,1);  */
+.deck .card .fa {
+  -webkit-transform: rotateY(90deg);
+  -moz-transform: rotateY(90deg);
+  -o-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
 
+.deck .card.open .fa {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
 
+.deck .card.open {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  background: #02b3e4;
+  cursor: default;
+}
+
+.deck .card:hover {
+  transform: scale3d(1, 1, 2) rotateZ(0deg);
+  background: rgba(46, 61, 73, 0.815);
+}
+
+.card.show {
+  font-size: 33px;
 }
 
 .match {

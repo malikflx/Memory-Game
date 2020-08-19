@@ -30,6 +30,18 @@ function randomizeDeck() {
 
 randomizeDeck();
 
+deck.addEventListener('click', event => {
+  const card = event.target;
+  if (card.classList.contains('card')) {
+    toggleCard(card);
+  }
+})
+
+function toggleCard(card) {
+  card.classList.toggle('open');
+  card.classList.toggle('show');
+}
+
 //Reset Deck with Reset Button
 const resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener('click', randomizeDeck);
