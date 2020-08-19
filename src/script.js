@@ -1,17 +1,5 @@
-let card = document.getElementsByClassName("card");
-let cardsArray = ['fa-usd', 'fa-usd'];
-
-const buttonReset = document.getElementsByClassName('reset');
-
-for (var i = 0; i < cards.length; i++) {
-  cards[i].addEventListener("click", flipCard);
-};
-
-var flipCard = function(){
-  this.classList.toggle("open");
-  this.classList.toggle("show");
-  this.classList.toggle("disabled");
-}
+// Array to hold all of my cards
+cards = ['fa-usd', 'fa-anchor', 'fa-star', 'fa-bell', 'fa-paper-plane-o', 'fa-anchor', 'fa-diamond', 'fa-glass', 'fa-star', 'fa-child', 'fa-bell', 'fa-paper-plane-o', 'fa-child', 'fa-glass', 'fa-usd', 'fa-diamond'];
 
 // Fisher-Yates (aka Knuth) Shuffle
 function shuffle(array) {
@@ -24,6 +12,21 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
+
   return array;
 }
+
+// Set up the event listener for a card.
+
+const deck = document.querySelector('.deck');
+
+function randomizeDeck() {
+  const nonShuffledCards = Array.from(document.querySelectorAll('.deck li'));
+  const shuffledCards = shuffle(nonShuffledCards);
+  for (card of shuffledCards) {
+    deck.appendChild(card);
+  }
+}
+
+randomizeDeck();
 
