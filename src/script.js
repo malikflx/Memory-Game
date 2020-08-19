@@ -30,3 +30,6 @@ function randomizeDeck() {
 
 randomizeDeck();
 
+//Reset Deck with Reset Button
+const resetBtn = document.querySelector('.reset');
+resetBtn.addEventListener('click', randomizeDeck);
