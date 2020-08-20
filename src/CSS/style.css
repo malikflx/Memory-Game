@@ -95,7 +95,7 @@ i {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
+  -ms-transform: rotateY(1800deg);
   transform: rotateY(180deg);
 }
 
@@ -109,8 +109,14 @@ i {
   cursor: default;
 }
 
+.deck .card.match {
+  cursor: default;
+  background: #00ff99;
+  font-size: 33px;
+}
+
 .deck .card:hover {
-  transform: scale3d(1, 1, 2) rotateZ(0deg);
+  transform: scale3d(1, 1, 2) rotateY(180deg);
   background: rgba(46, 61, 73, 0.815);
 }
 

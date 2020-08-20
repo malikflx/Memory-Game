@@ -32,15 +32,40 @@ randomizeDeck();
 
 deck.addEventListener('click', event => {
   const card = event.target;
-  if (card.classList.contains('card')) {
+  if (card.classList.contains('card') && toggledCards.length < 2) {
     toggleCard(card);
+    addToggleCard(card);
+    if (toggledCards.length === 2) {
+      matchCheck(card);
+    }
   }
-})
+});
+
+function addToggleCard(card) {
+  toggledCards.push(card);
+  console.log(toggledCards);
+}
 
 function toggleCard(card) {
   card.classList.toggle('open');
   card.classList.toggle('show');
 }
+
+function matchCheck() {
+  if (toggledCards[0].firstElementChild.className === toggledCards[1].firstElementChild.className) {
+    toggledCards[0].classList.toggle('match');
+    toggledCards[1].classList.toggle('match');
+    toggledCards = [];
+  } else {
+    setTimeout(() => {
+      toggleCard(toggledCards[0]);
+      toggleCard(toggledCards[1]);
+      toggledCards = [];
+    }, 1000);
+  }
+}
+
+let toggledCards = [];
 
 //Reset Deck with Reset Button
 const resetBtn = document.querySelector('.reset');
