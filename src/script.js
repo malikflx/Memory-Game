@@ -1,5 +1,6 @@
 // Array to hold all of my cards
-cards = ['fa-usd', 'fa-anchor', 'fa-star', 'fa-bell', 'fa-paper-plane-o', 'fa-anchor', 'fa-diamond', 'fa-glass', 'fa-star', 'fa-child', 'fa-bell', 'fa-paper-plane-o', 'fa-child', 'fa-glass', 'fa-usd', 'fa-diamond'];
+let cards = ['fa-usd', 'fa-anchor', 'fa-star', 'fa-bell', 'fa-paper-plane-o', 'fa-anchor', 'fa-diamond', 'fa-glass', 'fa-star', 'fa-child', 'fa-bell', 'fa-paper-plane-o', 'fa-child', 'fa-glass', 'fa-usd', 'fa-diamond'];
+let toggledCards = [];
 
 // Fisher-Yates (aka Knuth) Shuffle
 function shuffle(array) {
@@ -25,6 +26,7 @@ function randomizeDeck() {
   const shuffledCards = shuffle(nonShuffledCards);
   for (card of shuffledCards) {
     deck.appendChild(card);
+    card.classList.remove('open', 'show', 'match');
   }
 }
 
@@ -65,8 +67,11 @@ function matchCheck() {
   }
 }
 
-let toggledCards = [];
-
-//Reset Deck with Reset Button
+//Reset Deck & randomize cards with Reset Button
 const resetBtn = document.querySelector('.reset');
-resetBtn.addEventListener('click', randomizeDeck);
+resetBtn.addEventListener('click', resetGame);
+
+function resetGame(){
+  randomizeDeck();
+  toggledCards = []
+};
