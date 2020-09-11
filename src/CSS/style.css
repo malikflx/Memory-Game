@@ -15,7 +15,12 @@ html, body {
   padding: 0;
 }
 
-header {
+.container {
+  width: 50%;
+  margin: auto;
+  height: 100%;
+}
+.title {
   text-align: center;
 }
 
@@ -24,10 +29,11 @@ i {
 }
 
 .board {
-  width: 50%;
+  /* width: 50%; */
   height: 100%;
   max-width: 670px;
-  margin: auto;
+  max-height: 800px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,9 +50,10 @@ i {
 }
 
 .deck {
-  width: 85%;
+  width: 100%;
   height: 100%;
   min-height: 400px;
+  max-height: 800px;
   padding: 20px;
   border-radius: 10px;
   background: #0AC7FF;
@@ -65,8 +72,10 @@ i {
 }
 
 .deck .card {
-  height: 110px;
-  width: 110px;
+  height: 125px;
+  width: 125px;
+  /* height: 125px;
+  width: 125px; */
   background: #2e3d49;
   margin: 5px;
   border-radius: 8px;
@@ -128,4 +137,8 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.freeze {
+  pointer-events: none;
 }

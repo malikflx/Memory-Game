@@ -1,6 +1,9 @@
 // Array to hold all of my cards
 let cards = ['fa-usd', 'fa-anchor', 'fa-star', 'fa-bell', 'fa-paper-plane-o', 'fa-anchor', 'fa-diamond', 'fa-glass', 'fa-star', 'fa-child', 'fa-bell', 'fa-paper-plane-o', 'fa-child', 'fa-glass', 'fa-usd', 'fa-diamond'];
 let toggledCards = [];
+let matchCount = document.getElementById('matchCount');
+let matchScore = 0;
+let lock = true;
 
 // Fisher-Yates (aka Knuth) Shuffle
 function shuffle(array) {
@@ -26,7 +29,7 @@ function randomizeDeck() {
   const shuffledCards = shuffle(nonShuffledCards);
   for (card of shuffledCards) {
     deck.appendChild(card);
-    card.classList.remove('open', 'show', 'match');
+    card.classList.remove('open', 'show', 'match', 'freeze');
   }
 }
 
@@ -37,15 +40,21 @@ deck.addEventListener('click', event => {
   if (card.classList.contains('card') && toggledCards.length < 2) {
     toggleCard(card);
     addToggleCard(card);
+    card.classList.add('freeze');
     if (toggledCards.length === 2) {
+      toggledCards[0].classList.remove('freeze');
+      toggledCards[1].classList.remove('freeze');
       matchCheck(card);
     }
   }
+  // if (card.classList.contains('open', 'show')) {
+  //   card.classList.add('freeze');
+  // }
 });
 
 function addToggleCard(card) {
   toggledCards.push(card);
-  console.log(toggledCards);
+  console.log(toggledCards + " is open");
 }
 
 function toggleCard(card) {
@@ -57,6 +66,9 @@ function matchCheck() {
   if (toggledCards[0].firstElementChild.className === toggledCards[1].firstElementChild.className) {
     toggledCards[0].classList.toggle('match');
     toggledCards[1].classList.toggle('match');
+    toggledCards[0].classList.add('freeze');
+    toggledCards[1].classList.add('freeze');
+    matchScore++;
     toggledCards = [];
   } else {
     setTimeout(() => {
@@ -65,6 +77,7 @@ function matchCheck() {
       toggledCards = [];
     }, 1000);
   }
+  matchCount.textContent = matchScore;
 }
 
 //Reset Deck & randomize cards with Reset Button
@@ -73,5 +86,7 @@ resetBtn.addEventListener('click', resetGame);
 
 function resetGame(){
   randomizeDeck();
+  matchScore = 0;
+  matchCount.textContent = 0;
   toggledCards = []
 };

@@ -10,64 +10,67 @@
   <title>Malik Felix | Memory Game</title>
 </head>
 <body>
-  <section class="board">
+  <div class="container">
     <header>
-      <h1>Memory Game</h1>
+      <h1 class="title">Memory Game</h1>
+      <h3 class="count">Match Count: <span id="matchCount">0</span></h2>
     </header>
-    <ul class="deck">
-      <li class="card">
-        <i class="fa fa-usd" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-anchor" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-star" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-bell" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-anchor" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-diamond" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-glass" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-star" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-child" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-bell" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-child" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-glass" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-usd" aria-hidden="true"></i>
-      </li>
-      <li class="card">
-        <i class="fa fa-diamond" aria-hidden="true"></i>
-      </li>
-    </ul>
-  </section>
-  <section class="match">
-    <button class="reset">Reset</button>
-  </section>
+    <section class="board">
+      <ul class="deck">
+        <li class="card">
+          <i class="fa fa-usd" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-anchor" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-bell" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-anchor" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-diamond" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-glass" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-child" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-bell" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-child" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-glass" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-usd" aria-hidden="true"></i>
+        </li>
+        <li class="card">
+          <i class="fa fa-diamond" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </section>
+    <section class="match">
+      <button class="reset">Reset</button>
+    </section>
+  </div>
 
 <script src="index.js"></script>
 </body>
