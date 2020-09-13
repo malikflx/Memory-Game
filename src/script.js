@@ -1,6 +1,7 @@
 // Array to hold all of my cards
 let cards = ['fa-usd', 'fa-anchor', 'fa-star', 'fa-bell', 'fa-paper-plane-o', 'fa-anchor', 'fa-diamond', 'fa-glass', 'fa-star', 'fa-child', 'fa-bell', 'fa-paper-plane-o', 'fa-child', 'fa-glass', 'fa-usd', 'fa-diamond'];
 let toggledCards = [];
+let matchedCards = [];
 let matchCount = document.getElementById('matchCount');
 let matchScore = 0;
 let lock = true;
@@ -54,7 +55,6 @@ deck.addEventListener('click', event => {
 
 function addToggleCard(card) {
   toggledCards.push(card);
-  console.log(toggledCards + " is open");
 }
 
 function toggleCard(card) {
@@ -69,6 +69,9 @@ function matchCheck() {
     toggledCards[0].classList.add('freeze');
     toggledCards[1].classList.add('freeze');
     matchScore++;
+    matchedCards.push(toggledCards[0]);
+    matchedCards.push(toggledCards[1]);
+    console.log(matchedCards.length);
     toggledCards = [];
   } else {
     setTimeout(() => {
@@ -78,7 +81,14 @@ function matchCheck() {
     }, 1000);
   }
   matchCount.textContent = matchScore;
+  gameOver();
 }
+
+function gameOver(){
+  if (matchedCards.length === 16) {
+    alert('Game over, you \'ve won!');
+  }
+};
 
 //Reset Deck & randomize cards with Reset Button
 const resetBtn = document.querySelector('.reset');
