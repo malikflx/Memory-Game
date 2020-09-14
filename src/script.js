@@ -5,6 +5,9 @@ let matchedCards = [];
 let matchCount = document.getElementById('matchCount');
 let matchScore = 0;
 let lock = true;
+let modal = document.getElementById('myModal');
+let modalBtn = document.getElementById('myBtn');
+let closeModal = document.getElementsByClassName('close')[0];
 
 // Fisher-Yates (aka Knuth) Shuffle
 function shuffle(array) {
@@ -86,7 +89,29 @@ function matchCheck() {
 
 function gameOver(){
   if (matchedCards.length === 16) {
-    alert('Game over, you \'ve won!');
+      modal.style.display = 'block';
+    closeModal.onclick = function() {
+      resetGame();
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        resetGame();
+      }
+    };
+  }
+};
+
+modalBtn.onclick = function() {
+  modal.style.display = 'block';
+}
+
+closeModal.onclick = function() {
+  resetGame();
+}
+
+window.onclick = function(event) {
+  if(event.target == modal) {
+    resetGame();
   }
 };
 
@@ -94,9 +119,13 @@ function gameOver(){
 const resetBtn = document.querySelector('.reset');
 resetBtn.addEventListener('click', resetGame);
 
+const playAgain = document.querySelector('.playAgain');
+playAgain.addEventListener('click', resetGame);
+
 function resetGame(){
   randomizeDeck();
   matchScore = 0;
   matchCount.textContent = 0;
   toggledCards = []
+  modal.style.display = 'none';
 };
