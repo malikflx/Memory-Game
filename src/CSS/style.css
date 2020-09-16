@@ -134,6 +134,10 @@ i {
   animation-iteration-count: 1;
 }
 
+.deck .card.nomatch:hover {
+  background: red;
+}
+
 .deck .card:hover {
   transform: scaled(1, 1, 2) rotateY(180deg);
   background: rgba(46, 61, 73, 0.815);
