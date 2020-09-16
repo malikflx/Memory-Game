@@ -130,6 +130,8 @@ i {
   cursor: default;
   background: red;
   font-size: 33px;
+  animation: shake 0.8s;
+  animation-iteration-count: 1;
 }
 
 .deck .card:hover {
@@ -210,4 +212,23 @@ i {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/********************
+KEYFRAMES
+********************/
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

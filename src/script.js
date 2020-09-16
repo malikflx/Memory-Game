@@ -77,7 +77,11 @@ function matchCheck() {
     console.log(matchedCards.length);
     toggledCards = [];
   } else {
+    toggledCards[0].classList.toggle('nomatch');
+    toggledCards[1].classList.toggle('nomatch');
     setTimeout(() => {
+      toggledCards[0].classList.toggle('nomatch');
+      toggledCards[1].classList.toggle('nomatch');
       toggleCard(toggledCards[0]);
       toggleCard(toggledCards[1]);
       toggledCards = [];
