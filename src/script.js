@@ -132,4 +132,5 @@ function resetGame(){
   matchCount.textContent = 0;
   toggledCards = []
   modal.style.display = 'none';
+  matchedCards = [];
 };
