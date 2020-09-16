@@ -91,6 +91,7 @@ i {
   -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5); 
   cursor: pointer;
+  transition-duration: 0.4s;
 }
 
 .deck .card .fa {
@@ -125,8 +126,14 @@ i {
   font-size: 33px;
 }
 
+.deck .card.nomatch {
+  cursor: default;
+  background: red;
+  font-size: 33px;
+}
+
 .deck .card:hover {
-  transform: scale3d(1, 1, 2) rotateY(180deg);
+  transform: scaled(1, 1, 2) rotateY(180deg);
   background: rgba(46, 61, 73, 0.815);
 }
 
@@ -138,6 +145,29 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bttn {
+  background-color: #0AC7FF;
+  color: #FFF;
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 4px 2px;
+  transition-duration: 0.5s;
+  border-radius: 8px;
+}
+
+.bttn:hover {
+  background-color: #FFF;
+  color: #0AC7FF;
+  border: 1px solid #0AC7FF;
+}
+
+.bttn:focus {
+  outline: none;
 }
 
 .freeze {
