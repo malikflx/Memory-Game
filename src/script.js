@@ -8,6 +8,25 @@ let lock = true;
 let modal = document.getElementById('myModal');
 let modalBtn = document.getElementById('myBtn');
 let closeModal = document.getElementsByClassName('close')[0];
+let minutes = document.getElementById('minutes');
+let seconds = document.getElementById('seconds');
+let totalSeconds = 0;
+
+function setTime() {
+  ++totalSeconds;
+  seconds.innerHTML = pad(totalSeconds % 60);
+  minutes.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  let valString = val + "";
+  if (valString.length < 2) {
+    return '0' + valString
+  } else {
+    return valString;
+  }
+}
+
 
 // Fisher-Yates (aka Knuth) Shuffle
 function shuffle(array) {
@@ -38,6 +57,7 @@ function randomizeDeck() {
 }
 
 randomizeDeck();
+
 
 deck.addEventListener('click', event => {
   const card = event.target;

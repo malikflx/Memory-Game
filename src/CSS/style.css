@@ -25,6 +25,11 @@ h1 {
   margin: auto;
   height: 100%;
 }
+
+.dashboard {
+  display: flex;
+  justify-content: space-evenly;
+}
 .title {
   text-align: center;
 }
