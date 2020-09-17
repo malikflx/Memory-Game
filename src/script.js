@@ -3,29 +3,16 @@ let cards = ['fa-usd', 'fa-anchor', 'fa-star', 'fa-bell', 'fa-paper-plane-o', 'f
 let toggledCards = [];
 let matchedCards = [];
 let matchCount = document.getElementById('matchCount');
+let movesCount = document.getElementById('movesCount');
 let matchScore = 0;
+let moves = 0;
 let lock = true;
 let modal = document.getElementById('myModal');
 let modalBtn = document.getElementById('myBtn');
 let closeModal = document.getElementsByClassName('close')[0];
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
-let totalSeconds = 0;
 
-function setTime() {
-  ++totalSeconds;
-  seconds.innerHTML = pad(totalSeconds % 60);
-  minutes.innerHTML = pad(parseInt(totalSeconds / 60));
-}
-
-function pad(val) {
-  let valString = val + "";
-  if (valString.length < 2) {
-    return '0' + valString
-  } else {
-    return valString;
-  }
-}
 
 
 // Fisher-Yates (aka Knuth) Shuffle
@@ -92,11 +79,13 @@ function matchCheck() {
     toggledCards[0].classList.add('freeze');
     toggledCards[1].classList.add('freeze');
     matchScore++;
+    moves++
     matchedCards.push(toggledCards[0]);
     matchedCards.push(toggledCards[1]);
     console.log(matchedCards.length);
     toggledCards = [];
   } else {
+    moves++
     toggledCards[0].classList.toggle('nomatch');
     toggledCards[1].classList.toggle('nomatch');
     setTimeout(() => {
@@ -108,6 +97,7 @@ function matchCheck() {
     }, 1000);
   }
   matchCount.textContent = matchScore;
+  movesCount.textContent = moves;
   gameOver();
 }
 
@@ -149,7 +139,9 @@ playAgain.addEventListener('click', resetGame);
 function resetGame(){
   randomizeDeck();
   matchScore = 0;
+  moves = 0;
   matchCount.textContent = 0;
+  movesCount.textContent = 0;
   toggledCards = []
   modal.style.display = 'none';
   matchedCards = [];
