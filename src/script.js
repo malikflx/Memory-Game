@@ -10,8 +10,28 @@ let lock = true;
 let modal = document.getElementById('myModal');
 let modalBtn = document.getElementById('myBtn');
 let closeModal = document.getElementsByClassName('close')[0];
+let timer = document.getElementById('timer');
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
+let minutesCount = 0
+let secondsCount = 0
+
+let time = setInterval(function(){
+  secondsCount++
+  if (secondsCount < 10) {
+    seconds.textContent = "0" + secondsCount;
+  } else if (secondsCount === 60) {
+    minutesCount++;
+    minutes.textContent = minutesCount;
+    if (minutesCount < 10) {
+      minutes.textContent = "0" + minutesCount;
+    }
+    seconds.textContent = "00";
+    secondsCount = 0;
+  } else {
+    seconds.textContent = secondsCount;
+  }
+}, 1000);
 
 
 
