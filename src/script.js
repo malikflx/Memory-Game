@@ -10,30 +10,36 @@ let lock = true;
 let modal = document.getElementById('myModal');
 let modalBtn = document.getElementById('myBtn');
 let closeModal = document.getElementsByClassName('close')[0];
-let timer = document.getElementById('timer');
+let clock = document.getElementById('clock');
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
-let minutesCount = 0
-let secondsCount = 0
+let startGame = 0;
+let timerInterval;
 
-let time = setInterval(function(){
-  secondsCount++
-  if (secondsCount < 10) {
-    seconds.textContent = "0" + secondsCount;
-  } else if (secondsCount === 60) {
-    minutesCount++;
-    minutes.textContent = minutesCount;
-    if (minutesCount < 10) {
-      minutes.textContent = "0" + minutesCount;
+function startTimer() {
+  let minutesCount = 0;
+  let secondsCount = 0;
+  timerInterval = setInterval(function(){
+    secondsCount++
+    if (secondsCount < 10) {
+      seconds.textContent = "0" + secondsCount;
+    } else if (secondsCount === 60) {
+      minutesCount++;
+      minutes.textContent = minutesCount;
+      if (minutesCount < 10) {
+        minutes.textContent = "0" + minutesCount;
+      }
+      seconds.textContent = "00";
+      secondsCount = 0;
+    } else {
+      seconds.textContent = secondsCount;
     }
-    seconds.textContent = "00";
-    secondsCount = 0;
-  } else {
-    seconds.textContent = secondsCount;
-  }
-}, 1000);
+  }, 1000);
+};
 
-
+function stopGame() {
+  clearInterval(timerInterval);
+}
 
 // Fisher-Yates (aka Knuth) Shuffle
 function shuffle(array) {
@@ -78,9 +84,10 @@ deck.addEventListener('click', event => {
       matchCheck(card);
     }
   }
-  // if (card.classList.contains('open', 'show')) {
-  //   card.classList.add('freeze');
-  // }
+  if (startGame == 0) {
+    startTimer();
+    startGame++;
+  }
 });
 
 function addToggleCard(card) {
@@ -124,6 +131,7 @@ function matchCheck() {
 function gameOver(){
   if (matchedCards.length === 16) {
       modal.style.display = 'block';
+      stopGame();
     closeModal.onclick = function() {
       resetGame();
     }
@@ -137,6 +145,7 @@ function gameOver(){
 
 modalBtn.onclick = function() {
   modal.style.display = 'block';
+  stopGame();
 }
 
 closeModal.onclick = function() {
@@ -158,9 +167,13 @@ playAgain.addEventListener('click', resetGame);
 
 function resetGame(){
   randomizeDeck();
+  stopGame();
+  startGame = 0;
+  minutes.textContent = "00";
+  seconds.textContent = "00";
   matchScore = 0;
-  moves = 0;
   matchCount.textContent = 0;
+  moves = 0;
   movesCount.textContent = 0;
   toggledCards = []
   modal.style.display = 'none';
