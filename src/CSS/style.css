@@ -21,7 +21,12 @@ h1 {
 }
 
 .container {
-  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
   margin: auto;
   height: 100%;
 }
@@ -30,6 +35,11 @@ h1 {
   display: flex;
   justify-content: space-evenly;
 }
+
+.dash-item {
+  margin-left: 15px;
+}
+
 .title {
   text-align: center;
 }
@@ -244,5 +254,65 @@ KEYFRAMES
   }
   40%, 60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+/********************
+BREAKPOINTS
+********************/
+@media (max-width: 1024px) {
+  .board {
+    width: 650px;
+  }
+  .deck .card:hover {
+    background: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .board {
+    max-height: 500px;
+    max-width: 400px;
+  }
+  .deck {
+    padding: 5px;
+  }
+  .deck .card {
+    height: 75px;
+    width: 75px;
+  }
+
+  .modal-content{
+    padding: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    min-width: 300px;
+    text-align: center;
+    width: 100%;
+  }
+  .dashboard {
+    display: block;
+    line-height: .5;
+    text-align: left;
+  }
+  
+  .board {
+    width: 350px;
+  }
+  
+  .deck {
+    max-height: 100px;
+  }
+  .deck .card {
+    height: 75px;
+    width: 75px;
+  }
+
+  .modal-content {
+    padding: 30px;
+    font-size: 12px;
   }
 }
