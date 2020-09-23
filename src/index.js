@@ -1,4 +1,4 @@
-import '../src/css/style.css';
+import '../src/CSS/style.css';
 import '../src/script.js';
 import _ from 'lodash';
 
