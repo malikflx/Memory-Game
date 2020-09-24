@@ -17,10 +17,13 @@ html, body {
 }
 
 :root {
-  --accent: #120A8F;
-  --matched: #00ff99;
-  --mismatched: #E60000;
-  --textColor1: #FFF;
+  --accent: #FFC425;
+  --matched: #00b159;
+  --mismatched: #D11141;
+  --textColor1: #000;
+  --textColor2: #FFF;
+  --primary: #4C8BF5;
+  --secondary: #F37735;
 }
 
 h1 {
@@ -38,9 +41,34 @@ h1 {
   height: 100%;
 }
 
+.accent-background-top {
+  position: absolute;
+  height: 55%;
+  width: 100%;
+  background: var(--accent);
+  border-radius: 53% 47% 47% 53% / 0% 0% 100% 100%; 
+  z-index: -1;
+}
+
+.accent-background-bottom {
+  position: absolute;
+  top: 40%;
+  height: 60%;
+  width: 100%;
+  background: var(--matched);
+  border-radius: 53% 47% 100% 0% / 100% 100% 0% 0%; 
+  z-index: -1;
+}
+
+
 .dashboard {
   display: flex;
   justify-content: space-evenly;
+  color: var(--textColor1);
+}
+
+.dashboard h3 {
+  font-weight: 300;
 }
 
 .dash-item {
@@ -49,10 +77,11 @@ h1 {
 
 .title {
   text-align: center;
+  color: var(--textColor1)
 }
 
 i {
-  color: var(--textColor1);
+  color: var(--textColor2);
 }
 
 .board {
@@ -93,6 +122,8 @@ i {
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   -webkit-box-align: center;
+  -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  box-shadow: 5px 2px 20px 0 rgba(48, 63, 84, 1);
   -ms-flex-align: center;
   align-items: center;
   margin: 0 0 1em;
@@ -143,7 +174,7 @@ i {
   -o-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  background: var(--accent);
+  background: var(--secondary);
   cursor: default;
 }
 
@@ -162,12 +193,12 @@ i {
 }
 
 .deck .card.nomatch:hover {
-  background: red;
+  background: var(--mismatched);
 }
 
 .deck .card:hover {
   transform: scaled(1, 1, 2) rotateY(180deg);
-  background: rgba(48, 43, 84, 0.815);
+  background: rgba(76, 139, 245, 0.615);
 }
 
 .card.show {
@@ -181,22 +212,23 @@ i {
 }
 
 .bttn {
-  background-color: var(--accent);
-  color: var(--textColor1);
+  background-color: var(--primary);
+  color: var(--textColor2);
   border: none;
   padding: 16px 32px;
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
   margin: 4px 2px;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
   border-radius: 8px;
+  box-shadow: 5px 2px 20px 0 rgba(48, 63, 84, 1);
 }
 
 .bttn:hover {
-  background-color: var(--textColor1);
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  background-color: var(--textColor2);
+  color: var(--matched);
+  border: 1px solid var(--matched);
 }
 
 .bttn:focus {
